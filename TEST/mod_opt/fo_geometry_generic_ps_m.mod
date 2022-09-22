@@ -1,0 +1,135 @@
+GFORTRAN module version '10' created from ../sourcecode/FO_1p4_optimized/FO_geometry_Generic_ps.f90
+MD5:849eae6542839adc1d207870b1be00b0 -- If you edit this, you'll get what you deserve.
+
+(() () () () () () () () () () () () () () () () () () () () () () () ()
+() () ())
+
+()
+
+()
+
+()
+
+()
+
+()
+
+(2 'findsun' 'fo_geometry_generic_ps_m' '' 1 ((PROCEDURE UNKNOWN-INTENT
+MODULE-PROC DECL UNKNOWN 0 0 SUBROUTINE IMPLICIT_PURE) (UNKNOWN 0 0 0 0
+UNKNOWN ()) 3 0 (4 5 6 7 8 9 10 11 12) () 0 () () () 0 0)
+13 'findsunpath' 'fo_geometry_generic_ps_m' '' 1 ((PROCEDURE
+UNKNOWN-INTENT MODULE-PROC DECL UNKNOWN 0 0 SUBROUTINE IMPLICIT_PURE) (
+UNKNOWN 0 0 0 0 UNKNOWN ()) 14 0 (15 16 17 18 19 20 21) () 0 () () () 0
+0)
+22 'findsunpaths_d' 'fo_geometry_generic_ps_m' '' 1 ((PROCEDURE
+UNKNOWN-INTENT MODULE-PROC DECL UNKNOWN 0 0 SUBROUTINE IMPLICIT_PURE) (
+UNKNOWN 0 0 0 0 UNKNOWN ()) 23 0 (24 25 26 27 28 29 30 31) () 0 () () ()
+0 0)
+32 'findsunpaths_t' 'fo_geometry_generic_ps_m' '' 1 ((PROCEDURE
+UNKNOWN-INTENT MODULE-PROC DECL UNKNOWN 0 0 SUBROUTINE IMPLICIT_PURE) (
+UNKNOWN 0 0 0 0 UNKNOWN ()) 33 0 (34 35 36 37 38 39 40 41 42) () 0 () ()
+() 0 0)
+43 'fo_geometry_generic_ps_m' 'fo_geometry_generic_ps_m' '' 1 ((MODULE
+UNKNOWN-INTENT UNKNOWN-PROC UNKNOWN UNKNOWN 0 0) (UNKNOWN 0 0 0 0
+UNKNOWN ()) 0 0 () () 0 () () () 0 0)
+44 'gauleg_ng' 'fo_geometry_generic_ps_m' '' 1 ((PROCEDURE
+UNKNOWN-INTENT MODULE-PROC DECL UNKNOWN 0 0 SUBROUTINE IMPLICIT_PURE) (
+UNKNOWN 0 0 0 0 UNKNOWN ()) 45 0 (46 47 48 49 50 51) () 0 () () () 0 0)
+4 'donadir' '' '' 3 ((VARIABLE IN UNKNOWN-PROC UNKNOWN UNKNOWN 0 0 DUMMY)
+(LOGICAL 4 0 0 0 LOGICAL ()) 0 0 () () 0 () () () 0 0)
+5 'do_overheadsun' '' '' 3 ((VARIABLE IN UNKNOWN-PROC UNKNOWN UNKNOWN 0
+0 DUMMY) (LOGICAL 4 0 0 0 LOGICAL ()) 0 0 () () 0 () () () 0 0)
+6 'radius' '' '' 3 ((VARIABLE IN UNKNOWN-PROC UNKNOWN UNKNOWN 0 0 DUMMY)
+(REAL 8 0 0 0 REAL ()) 0 0 () () 0 () () () 0 0)
+7 'solardirection' '' '' 3 ((VARIABLE IN UNKNOWN-PROC UNKNOWN UNKNOWN 0
+0 DIMENSION DUMMY) (REAL 8 0 0 0 REAL ()) 0 0 () (1 0 EXPLICIT (
+CONSTANT (INTEGER 4 0 0 0 INTEGER ()) 0 '1') (CONSTANT (INTEGER 4 0 0 0
+INTEGER ()) 0 '3')) 0 () () () 0 0)
+8 'cumangle' '' '' 3 ((VARIABLE IN UNKNOWN-PROC UNKNOWN UNKNOWN 0 0
+DUMMY) (REAL 8 0 0 0 REAL ()) 0 0 () () 0 () () () 0 0)
+9 'theta_boa_r' '' '' 3 ((VARIABLE IN UNKNOWN-PROC UNKNOWN UNKNOWN 0 0
+DUMMY) (REAL 8 0 0 0 REAL ()) 0 0 () () 0 () () () 0 0)
+10 'theta' '' '' 3 ((VARIABLE OUT UNKNOWN-PROC UNKNOWN UNKNOWN 0 0 DUMMY)
+(REAL 8 0 0 0 REAL ()) 0 0 () () 0 () () () 0 0)
+11 'stheta' '' '' 3 ((VARIABLE OUT UNKNOWN-PROC UNKNOWN UNKNOWN 0 0
+DUMMY) (REAL 8 0 0 0 REAL ()) 0 0 () () 0 () () () 0 0)
+12 'dirsun' '' '' 3 ((VARIABLE OUT UNKNOWN-PROC UNKNOWN UNKNOWN 0 0
+DUMMY) (LOGICAL 4 0 0 0 LOGICAL ()) 0 0 () () 0 () () () 0 0)
+15 'x' '' '' 14 ((VARIABLE IN UNKNOWN-PROC UNKNOWN UNKNOWN 0 0 DUMMY) (
+REAL 8 0 0 0 REAL ()) 0 0 () () 0 () () () 0 0)
+16 'xboa' '' '' 14 ((VARIABLE IN UNKNOWN-PROC UNKNOWN UNKNOWN 0 0 DUMMY)
+(REAL 8 0 0 0 REAL ()) 0 0 () () 0 () () () 0 0)
+17 'rtop' '' '' 14 ((VARIABLE IN UNKNOWN-PROC UNKNOWN UNKNOWN 0 0 DUMMY)
+(REAL 8 0 0 0 REAL ()) 0 0 () () 0 () () () 0 0)
+18 'raycon' '' '' 14 ((VARIABLE IN UNKNOWN-PROC UNKNOWN UNKNOWN 0 0
+DUMMY) (REAL 8 0 0 0 REAL ()) 0 0 () () 0 () () () 0 0)
+19 'sundir' '' '' 14 ((VARIABLE IN UNKNOWN-PROC UNKNOWN UNKNOWN 0 0
+DIMENSION DUMMY) (REAL 8 0 0 0 REAL ()) 0 0 () (1 0 EXPLICIT (CONSTANT (
+INTEGER 4 0 0 0 INTEGER ()) 0 '1') (CONSTANT (INTEGER 4 0 0 0 INTEGER ())
+0 '3')) 0 () () () 0 0)
+20 'sundist' '' '' 14 ((VARIABLE OUT UNKNOWN-PROC UNKNOWN UNKNOWN 0 0
+DUMMY) (REAL 8 0 0 0 REAL ()) 0 0 () () 0 () () () 0 0)
+21 'theta0' '' '' 14 ((VARIABLE OUT UNKNOWN-PROC UNKNOWN UNKNOWN 0 0
+DUMMY) (REAL 8 0 0 0 REAL ()) 0 0 () () 0 () () () 0 0)
+24 'do_zerosunboa' '' '' 23 ((VARIABLE IN UNKNOWN-PROC UNKNOWN UNKNOWN 0
+0 DUMMY) (LOGICAL 4 0 0 0 LOGICAL ()) 0 0 () () 0 () () () 0 0)
+25 'maxlayers' '' '' 23 ((VARIABLE IN UNKNOWN-PROC UNKNOWN UNKNOWN 0 0
+DUMMY) (INTEGER 4 0 0 0 INTEGER ()) 0 0 () () 0 () () () 0 0)
+26 'radstart' '' '' 23 ((VARIABLE IN UNKNOWN-PROC UNKNOWN UNKNOWN 0 0
+DUMMY) (REAL 8 0 0 0 REAL ()) 0 0 () () 0 () () () 0 0)
+27 'radii' '' '' 23 ((VARIABLE IN UNKNOWN-PROC UNKNOWN UNKNOWN 0 0
+DIMENSION DUMMY) (REAL 8 0 0 0 REAL ()) 0 0 () (1 0 EXPLICIT (CONSTANT (
+INTEGER 4 0 0 0 INTEGER ()) 0 '0') (VARIABLE (INTEGER 4 0 0 0 INTEGER ())
+0 25 ())) 0 () () () 0 0)
+28 'thstart' '' '' 23 ((VARIABLE IN UNKNOWN-PROC UNKNOWN UNKNOWN 0 0
+DUMMY) (REAL 8 0 0 0 REAL ()) 0 0 () () 0 () () () 0 0)
+29 'sthstart' '' '' 23 ((VARIABLE IN UNKNOWN-PROC UNKNOWN UNKNOWN 0 0
+DUMMY) (REAL 8 0 0 0 REAL ()) 0 0 () () 0 () () () 0 0)
+30 'n' '' '' 23 ((VARIABLE IN UNKNOWN-PROC UNKNOWN UNKNOWN 0 0 DUMMY) (
+INTEGER 4 0 0 0 INTEGER ()) 0 0 () () 0 () () () 0 0)
+31 'sunpaths' '' '' 23 ((VARIABLE OUT UNKNOWN-PROC UNKNOWN UNKNOWN 0 0
+DIMENSION DUMMY) (REAL 8 0 0 0 REAL ()) 0 0 () (1 0 EXPLICIT (CONSTANT (
+INTEGER 4 0 0 0 INTEGER ()) 0 '1') (VARIABLE (INTEGER 4 0 0 0 INTEGER ())
+0 25 ())) 0 () () () 0 0)
+34 'maxlayers' '' '' 33 ((VARIABLE IN UNKNOWN-PROC UNKNOWN UNKNOWN 0 0
+DUMMY) (INTEGER 4 0 0 0 INTEGER ()) 0 0 () () 0 () () () 0 0)
+35 'pie' '' '' 33 ((VARIABLE IN UNKNOWN-PROC UNKNOWN UNKNOWN 0 0 DUMMY)
+(REAL 8 0 0 0 REAL ()) 0 0 () () 0 () () () 0 0)
+36 'radstart' '' '' 33 ((VARIABLE IN UNKNOWN-PROC UNKNOWN UNKNOWN 0 0
+DUMMY) (REAL 8 0 0 0 REAL ()) 0 0 () () 0 () () () 0 0)
+37 'radii' '' '' 33 ((VARIABLE IN UNKNOWN-PROC UNKNOWN UNKNOWN 0 0
+DIMENSION DUMMY) (REAL 8 0 0 0 REAL ()) 0 0 () (1 0 EXPLICIT (CONSTANT (
+INTEGER 4 0 0 0 INTEGER ()) 0 '0') (VARIABLE (INTEGER 4 0 0 0 INTEGER ())
+0 34 ())) 0 () () () 0 0)
+38 'thstart' '' '' 33 ((VARIABLE IN UNKNOWN-PROC UNKNOWN UNKNOWN 0 0
+DUMMY) (REAL 8 0 0 0 REAL ()) 0 0 () () 0 () () () 0 0)
+39 'sthstart' '' '' 33 ((VARIABLE IN UNKNOWN-PROC UNKNOWN UNKNOWN 0 0
+DUMMY) (REAL 8 0 0 0 REAL ()) 0 0 () () 0 () () () 0 0)
+40 'n' '' '' 33 ((VARIABLE IN UNKNOWN-PROC UNKNOWN UNKNOWN 0 0 DUMMY) (
+INTEGER 4 0 0 0 INTEGER ()) 0 0 () () 0 () () () 0 0)
+41 'sunpaths' '' '' 33 ((VARIABLE OUT UNKNOWN-PROC UNKNOWN UNKNOWN 0 0
+DIMENSION DUMMY) (REAL 8 0 0 0 REAL ()) 0 0 () (1 0 EXPLICIT (CONSTANT (
+INTEGER 4 0 0 0 INTEGER ()) 0 '1') (VARIABLE (INTEGER 4 0 0 0 INTEGER ())
+0 34 ())) 0 () () () 0 0)
+42 'nt' '' '' 33 ((VARIABLE OUT UNKNOWN-PROC UNKNOWN UNKNOWN 0 0 DUMMY)
+(INTEGER 4 0 0 0 INTEGER ()) 0 0 () () 0 () () () 0 0)
+46 'x1' '' '' 45 ((VARIABLE IN UNKNOWN-PROC UNKNOWN UNKNOWN 0 0 DUMMY) (
+REAL 8 0 0 0 REAL ()) 0 0 () () 0 () () () 0 0)
+47 'x2' '' '' 45 ((VARIABLE IN UNKNOWN-PROC UNKNOWN UNKNOWN 0 0 DUMMY) (
+REAL 8 0 0 0 REAL ()) 0 0 () () 0 () () () 0 0)
+48 'x' '' '' 45 ((VARIABLE OUT UNKNOWN-PROC UNKNOWN UNKNOWN 0 0
+DIMENSION DUMMY) (REAL 8 0 0 0 REAL ()) 0 0 () (1 0 EXPLICIT (CONSTANT (
+INTEGER 4 0 0 0 INTEGER ()) 0 '1') (VARIABLE (INTEGER 4 0 0 0 INTEGER ())
+0 51 ())) 0 () () () 0 0)
+49 'w' '' '' 45 ((VARIABLE OUT UNKNOWN-PROC UNKNOWN UNKNOWN 0 0
+DIMENSION DUMMY) (REAL 8 0 0 0 REAL ()) 0 0 () (1 0 EXPLICIT (CONSTANT (
+INTEGER 4 0 0 0 INTEGER ()) 0 '1') (VARIABLE (INTEGER 4 0 0 0 INTEGER ())
+0 51 ())) 0 () () () 0 0)
+50 'n' '' '' 45 ((VARIABLE IN UNKNOWN-PROC UNKNOWN UNKNOWN 0 0 DUMMY) (
+INTEGER 4 0 0 0 INTEGER ()) 0 0 () () 0 () () () 0 0)
+51 'nmax' '' '' 45 ((VARIABLE IN UNKNOWN-PROC UNKNOWN UNKNOWN 0 0 DUMMY)
+(INTEGER 4 0 0 0 INTEGER ()) 0 0 () () 0 () () () 0 0)
+)
+
+('findsun' 0 2 'findsunpath' 0 13 'findsunpaths_d' 0 22 'findsunpaths_t'
+0 32 'fo_geometry_generic_ps_m' 0 43 'gauleg_ng' 0 44)

@@ -1,0 +1,119 @@
+GFORTRAN module version '10' created from ../sourcecode/2stream_2p4_optimized/solar/obs/2stream_converge_obs.f90
+MD5:a01a7b47b6afea6ebd4c980915e04241 -- If you edit this, you'll get what you deserve.
+
+(() () () () () () () () () () () () () () () () () () () () () () () ()
+() () ())
+
+()
+
+()
+
+()
+
+()
+
+()
+
+(2 'twostream_converge_obs_m' 'twostream_converge_obs_m' '' 1 ((MODULE
+UNKNOWN-INTENT UNKNOWN-PROC UNKNOWN UNKNOWN 0 0) (UNKNOWN 0 0 0 0
+UNKNOWN ()) 0 0 () () 0 () () () 0 0)
+3 'twostream_converge_obsgeo_solar' 'twostream_converge_obs_m' '' 1 ((
+PROCEDURE UNKNOWN-INTENT MODULE-PROC DECL UNKNOWN 0 0 SUBROUTINE
+IMPLICIT_PURE) (UNKNOWN 0 0 0 0 UNKNOWN ()) 4 0 (5 6 7 8 9 10 11 12 13
+14 15 16 17 18 19) () 0 () () () 0 0)
+20 'twostream_converge_obsgeo_thermal' 'twostream_converge_obs_m' '' 1 (
+(PROCEDURE UNKNOWN-INTENT MODULE-PROC DECL UNKNOWN 0 0 SUBROUTINE
+IMPLICIT_PURE) (UNKNOWN 0 0 0 0 UNKNOWN ()) 21 0 (22 23 24 25 26 27 28
+29 30 31 32 33 34 35 36) () 0 () () () 0 0)
+5 'maxlayers' '' '' 4 ((VARIABLE IN UNKNOWN-PROC UNKNOWN UNKNOWN 0 0
+DUMMY) (INTEGER 4 0 0 0 INTEGER ()) 0 0 () () 0 () () () 0 0)
+6 'do_upwelling' '' '' 4 ((VARIABLE IN UNKNOWN-PROC UNKNOWN UNKNOWN 0 0
+DUMMY) (LOGICAL 4 0 0 0 LOGICAL ()) 0 0 () () 0 () () () 0 0)
+7 'do_dnwelling' '' '' 4 ((VARIABLE IN UNKNOWN-PROC UNKNOWN UNKNOWN 0 0
+DUMMY) (LOGICAL 4 0 0 0 LOGICAL ()) 0 0 () () 0 () () () 0 0)
+8 'do_2s_levelout' '' '' 4 ((VARIABLE IN UNKNOWN-PROC UNKNOWN UNKNOWN 0
+0 DUMMY) (LOGICAL 4 0 0 0 LOGICAL ()) 0 0 () () 0 () () () 0 0)
+9 'nlayers' '' '' 4 ((VARIABLE IN UNKNOWN-PROC UNKNOWN UNKNOWN 0 0 DUMMY)
+(INTEGER 4 0 0 0 INTEGER ()) 0 0 () () 0 () () () 0 0)
+10 'fourier_component' '' '' 4 ((VARIABLE IN UNKNOWN-PROC UNKNOWN
+UNKNOWN 0 0 DUMMY) (INTEGER 4 0 0 0 INTEGER ()) 0 0 () () 0 () () () 0 0)
+11 'azmfacb' '' '' 4 ((VARIABLE IN UNKNOWN-PROC UNKNOWN UNKNOWN 0 0
+DUMMY) (REAL 8 0 0 0 REAL ()) 0 0 () () 0 () () () 0 0)
+12 'intensity_f_upb' '' '' 4 ((VARIABLE IN UNKNOWN-PROC UNKNOWN UNKNOWN
+0 0 DUMMY) (REAL 8 0 0 0 REAL ()) 0 0 () () 0 () () () 0 0)
+13 'intensity_f_dnb' '' '' 4 ((VARIABLE IN UNKNOWN-PROC UNKNOWN UNKNOWN
+0 0 DUMMY) (REAL 8 0 0 0 REAL ()) 0 0 () () 0 () () () 0 0)
+14 'radlevel_f_upb' '' '' 4 ((VARIABLE IN UNKNOWN-PROC UNKNOWN UNKNOWN 0
+0 DIMENSION DUMMY) (REAL 8 0 0 0 REAL ()) 0 0 () (1 0 EXPLICIT (
+CONSTANT (INTEGER 4 0 0 0 INTEGER ()) 0 '0') (VARIABLE (INTEGER 4 0 0 0
+INTEGER ()) 0 5 ())) 0 () () () 0 0)
+15 'radlevel_f_dnb' '' '' 4 ((VARIABLE IN UNKNOWN-PROC UNKNOWN UNKNOWN 0
+0 DIMENSION DUMMY) (REAL 8 0 0 0 REAL ()) 0 0 () (1 0 EXPLICIT (
+CONSTANT (INTEGER 4 0 0 0 INTEGER ()) 0 '0') (VARIABLE (INTEGER 4 0 0 0
+INTEGER ()) 0 5 ())) 0 () () () 0 0)
+16 'intensity_toab' '' '' 4 ((VARIABLE INOUT UNKNOWN-PROC UNKNOWN
+UNKNOWN 0 0 DUMMY) (REAL 8 0 0 0 REAL ()) 0 0 () () 0 () () () 0 0)
+17 'intensity_boab' '' '' 4 ((VARIABLE INOUT UNKNOWN-PROC UNKNOWN
+UNKNOWN 0 0 DUMMY) (REAL 8 0 0 0 REAL ()) 0 0 () () 0 () () () 0 0)
+18 'radlevel_upb' '' '' 4 ((VARIABLE INOUT UNKNOWN-PROC UNKNOWN UNKNOWN
+0 0 DIMENSION DUMMY) (REAL 8 0 0 0 REAL ()) 0 0 () (1 0 EXPLICIT (
+CONSTANT (INTEGER 4 0 0 0 INTEGER ()) 0 '0') (VARIABLE (INTEGER 4 0 0 0
+INTEGER ()) 0 5 ())) 0 () () () 0 0)
+19 'radlevel_dnb' '' '' 4 ((VARIABLE INOUT UNKNOWN-PROC UNKNOWN UNKNOWN
+0 0 DIMENSION DUMMY) (REAL 8 0 0 0 REAL ()) 0 0 () (1 0 EXPLICIT (
+CONSTANT (INTEGER 4 0 0 0 INTEGER ()) 0 '0') (VARIABLE (INTEGER 4 0 0 0
+INTEGER ()) 0 5 ())) 0 () () () 0 0)
+22 'max_user_streams' '' '' 21 ((VARIABLE IN UNKNOWN-PROC UNKNOWN
+UNKNOWN 0 0 DUMMY) (INTEGER 4 0 0 0 INTEGER ()) 0 0 () () 0 () () () 0 0)
+23 'maxlayers' '' '' 21 ((VARIABLE IN UNKNOWN-PROC UNKNOWN UNKNOWN 0 0
+DUMMY) (INTEGER 4 0 0 0 INTEGER ()) 0 0 () () 0 () () () 0 0)
+24 'do_upwelling' '' '' 21 ((VARIABLE IN UNKNOWN-PROC UNKNOWN UNKNOWN 0
+0 DUMMY) (LOGICAL 4 0 0 0 LOGICAL ()) 0 0 () () 0 () () () 0 0)
+25 'do_dnwelling' '' '' 21 ((VARIABLE IN UNKNOWN-PROC UNKNOWN UNKNOWN 0
+0 DUMMY) (LOGICAL 4 0 0 0 LOGICAL ()) 0 0 () () 0 () () () 0 0)
+26 'do_2s_levelout' '' '' 21 ((VARIABLE IN UNKNOWN-PROC UNKNOWN UNKNOWN
+0 0 DUMMY) (LOGICAL 4 0 0 0 LOGICAL ()) 0 0 () () 0 () () () 0 0)
+27 'nlayers' '' '' 21 ((VARIABLE IN UNKNOWN-PROC UNKNOWN UNKNOWN 0 0
+DUMMY) (INTEGER 4 0 0 0 INTEGER ()) 0 0 () () 0 () () () 0 0)
+28 'n_user_streams' '' '' 21 ((VARIABLE IN UNKNOWN-PROC UNKNOWN UNKNOWN
+0 0 DUMMY) (INTEGER 4 0 0 0 INTEGER ()) 0 0 () () 0 () () () 0 0)
+29 'intensity_f_up' '' '' 21 ((VARIABLE IN UNKNOWN-PROC UNKNOWN UNKNOWN
+0 0 DIMENSION DUMMY) (REAL 8 0 0 0 REAL ()) 0 0 () (1 0 EXPLICIT (
+CONSTANT (INTEGER 4 0 0 0 INTEGER ()) 0 '1') (VARIABLE (INTEGER 4 0 0 0
+INTEGER ()) 0 22 ())) 0 () () () 0 0)
+30 'intensity_f_dn' '' '' 21 ((VARIABLE IN UNKNOWN-PROC UNKNOWN UNKNOWN
+0 0 DIMENSION DUMMY) (REAL 8 0 0 0 REAL ()) 0 0 () (1 0 EXPLICIT (
+CONSTANT (INTEGER 4 0 0 0 INTEGER ()) 0 '1') (VARIABLE (INTEGER 4 0 0 0
+INTEGER ()) 0 22 ())) 0 () () () 0 0)
+31 'radlevel_f_up' '' '' 21 ((VARIABLE IN UNKNOWN-PROC UNKNOWN UNKNOWN 0
+0 DIMENSION DUMMY) (REAL 8 0 0 0 REAL ()) 0 0 () (2 0 EXPLICIT (
+CONSTANT (INTEGER 4 0 0 0 INTEGER ()) 0 '1') (VARIABLE (INTEGER 4 0 0 0
+INTEGER ()) 0 22 ()) (CONSTANT (INTEGER 4 0 0 0 INTEGER ()) 0 '0') (
+VARIABLE (INTEGER 4 0 0 0 INTEGER ()) 0 23 ())) 0 () () () 0 0)
+32 'radlevel_f_dn' '' '' 21 ((VARIABLE IN UNKNOWN-PROC UNKNOWN UNKNOWN 0
+0 DIMENSION DUMMY) (REAL 8 0 0 0 REAL ()) 0 0 () (2 0 EXPLICIT (
+CONSTANT (INTEGER 4 0 0 0 INTEGER ()) 0 '1') (VARIABLE (INTEGER 4 0 0 0
+INTEGER ()) 0 22 ()) (CONSTANT (INTEGER 4 0 0 0 INTEGER ()) 0 '0') (
+VARIABLE (INTEGER 4 0 0 0 INTEGER ()) 0 23 ())) 0 () () () 0 0)
+33 'intensity_toa' '' '' 21 ((VARIABLE INOUT UNKNOWN-PROC UNKNOWN
+UNKNOWN 0 0 DIMENSION DUMMY) (REAL 8 0 0 0 REAL ()) 0 0 () (1 0 EXPLICIT
+(CONSTANT (INTEGER 4 0 0 0 INTEGER ()) 0 '1') (VARIABLE (INTEGER 4 0 0 0
+INTEGER ()) 0 22 ())) 0 () () () 0 0)
+34 'intensity_boa' '' '' 21 ((VARIABLE INOUT UNKNOWN-PROC UNKNOWN
+UNKNOWN 0 0 DIMENSION DUMMY) (REAL 8 0 0 0 REAL ()) 0 0 () (1 0 EXPLICIT
+(CONSTANT (INTEGER 4 0 0 0 INTEGER ()) 0 '1') (VARIABLE (INTEGER 4 0 0 0
+INTEGER ()) 0 22 ())) 0 () () () 0 0)
+35 'radlevel_up' '' '' 21 ((VARIABLE INOUT UNKNOWN-PROC UNKNOWN UNKNOWN
+0 0 DIMENSION DUMMY) (REAL 8 0 0 0 REAL ()) 0 0 () (2 0 EXPLICIT (
+CONSTANT (INTEGER 4 0 0 0 INTEGER ()) 0 '0') (VARIABLE (INTEGER 4 0 0 0
+INTEGER ()) 0 23 ()) (CONSTANT (INTEGER 4 0 0 0 INTEGER ()) 0 '1') (
+VARIABLE (INTEGER 4 0 0 0 INTEGER ()) 0 22 ())) 0 () () () 0 0)
+36 'radlevel_dn' '' '' 21 ((VARIABLE INOUT UNKNOWN-PROC UNKNOWN UNKNOWN
+0 0 DIMENSION DUMMY) (REAL 8 0 0 0 REAL ()) 0 0 () (2 0 EXPLICIT (
+CONSTANT (INTEGER 4 0 0 0 INTEGER ()) 0 '0') (VARIABLE (INTEGER 4 0 0 0
+INTEGER ()) 0 23 ()) (CONSTANT (INTEGER 4 0 0 0 INTEGER ()) 0 '1') (
+VARIABLE (INTEGER 4 0 0 0 INTEGER ()) 0 22 ())) 0 () () () 0 0)
+)
+
+('twostream_converge_obs_m' 0 2 'twostream_converge_obsgeo_solar' 0 3
+'twostream_converge_obsgeo_thermal' 0 20)
