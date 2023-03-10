@@ -1,0 +1,48 @@
+# Object and module interface files
+*.o
+*.mod
+
+# Compiled library files
+*.a
+*.so
+
+# macOS Files
+.DS_Store
+
+# configure files
+.deps/
+.dirstamp
+
+# various
+*~
+
+# tags file
+tags
+
+# swap files (vim backups)
+.*.swp
+
+# ------ Python Project defaults ------
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+
+# f2py interface files
+*.pyf
+
+# Distribution / packaging
+bin/
+build/
+develop-eggs/
+dist/
+eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+*.egg-info/
+.installed.cfg
+*.egg
+
+.vscode/
