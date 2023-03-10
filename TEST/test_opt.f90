@@ -1075,12 +1075,12 @@ write(0,*) 'ESS intensity = ', intensity_FO_Exact(1,1)
 
 
    ! output data into a file 
-open(1, file = 'test_opt_output.dat', status = 'old')   
+open(1, file = 'test_opt_output.dat')   
    write(1,*) '2S intensity = ', intensity_2S_Exact(1,1)
    write(1,*) 'ESS intensity = ', intensity_FO_Exact(1,1) 
 close(1) 
 
-open(2, file = 'test_opt_timings.dat', status = 'old')     
+open(2, file = 'test_opt_timings.dat')     
    write(2,*) 'Initial setup time = ', Exacttimes(1)
    write(2,*) 'ESS geometry calc time = ', Exacttimes(2)
    write(2,*) 'Spherical function calc time = ', Exacttimes(3)
