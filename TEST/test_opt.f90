@@ -1050,7 +1050,7 @@ program test_opt
              intensity_2S_Exact(w,v),intensity_FO_Exact(w,v)
 250      format(i5,1p2e20.10)
       endif
-!      Stop'810 first'
+!      STOP '810 first'
 
 !  End of main wavelength loop
 
@@ -1072,6 +1072,23 @@ write(0,*) 'ESS calc time = ', Exacttimes(7)
 write(0,*) 'Total run time = ', ExactRuntime
 write(0,*) '2S intensity = ', intensity_2S_Exact(1,1)
 write(0,*) 'ESS intensity = ', intensity_FO_Exact(1,1)
+
+
+   ! output data into a file 
+open(1, file = 'test_opt_output.dat', status = 'old')   
+   write(1,*) '2S intensity = ', intensity_2S_Exact(1,1)
+   write(1,*) 'ESS intensity = ', intensity_FO_Exact(1,1) 
+close(1) 
+
+open(2, file = 'test_opt_timings.dat', status = 'old')     
+   write(2,*) 'Initial setup time = ', Exacttimes(1)
+   write(2,*) 'ESS geometry calc time = ', Exacttimes(2)
+   write(2,*) 'Spherical function calc time = ', Exacttimes(3)
+   write(2,*) 'Optical property calc time = ', Exacttimes(4)
+   write(2,*) '2S calc time = ', Exacttimes(5)
+   write(2,*) 'ESS calc time = ', Exacttimes(6)
+   write(2,*) 'Total run time = ', ExactRuntime 
+close(2) 
 
 !  Normal Finish
 
