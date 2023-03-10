@@ -75,7 +75,7 @@ endif
 # Additional flags for gfortran
 ifeq ($(FC), gfortran)
 	FFLAGS := $(FFLAGS) -mcmodel=large -I$(MOD_PATH) -J$(MOD_PATH) -O3
-#	FFLAGS_DEBUG = -g -C -Wall -mcmodel=large -fbounds-check -frange-check -ffpe-trap=invalid,zero,overflow -fbacktrace
+	FFLAGS_DEBUG = -g -C -Wall -mcmodel=large -fbounds-check -frange-check -ffpe-trap=invalid,zero,overflow -fbacktrace
 #	FFLAGS := $(FFLAGS) -I$(MOD_PATH) -J$(MOD_PATH)
 
 #	FFLAGS_DEBUG = -fstack-usage

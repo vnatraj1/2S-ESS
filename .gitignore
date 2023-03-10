@@ -7,8 +7,11 @@
 *.so
 
 # TEST compilation folder
-TEST/mod/
-TEST/mod_opt/
+# TEST/mod/
+# TEST/mod_opt/
+
+# generated test executables
+*.exe
 
 # macOS Files
 .DS_Store
