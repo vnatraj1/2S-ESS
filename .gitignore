@@ -6,6 +6,10 @@
 *.a
 *.so
 
+# TEST compilation folder
+TEST/mod/
+TEST/mod_opt/
+
 # macOS Files
 .DS_Store
 
