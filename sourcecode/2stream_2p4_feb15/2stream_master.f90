@@ -95,13 +95,14 @@ SUBROUTINE TWOSTREAM_MASTER &
           INTENSITY_TOA, INTENSITY_BOA, FLUXES_TOA, FLUXES_BOA,           & ! Outputs !@@ 2p3 (Fluxes)
           RADLEVEL_UP, RADLEVEL_DN, N_GEOMETRIES,                         & ! Outputs !@@ 2p2
           STATUS_INPUTCHECK, C_NMESSAGES, C_MESSAGES, C_ACTIONS,          & ! Exception handling
-          STATUS_EXECUTION,  E_MESSAGE, E_TRACE_1, E_TRACE_2 )              ! Exception handling
-
+          STATUS_EXECUTION,  E_MESSAGE, E_TRACE_1, E_TRACE_2,             & ! Exception handling
+          geom_timer )             
       implicit none
 
 !  precision and parameters
 
       INTEGER      , PARAMETER :: dp   = KIND( 1.0D0 )
+      INTEGER      , PARAMETER :: sp   = KIND( 1.0 )
       REAL(kind=dp), parameter :: zero = 0.0_dp, one = 1.0_dp
 
 !  Notes 21 december 2012. Observational Geometry Inputs. Marked with !@@ 2p1
@@ -480,6 +481,9 @@ SUBROUTINE TWOSTREAM_MASTER &
       LOGICAL          :: DO_DEBUG_INPUT=.FALSE.
       !LOGICAL          :: DO_DEBUG_INPUT=.TRUE.
 
+
+      real(kind=sp), intent(inout)  :: geom_timer
+      real(kind=sp)   ::  timer1, timer2
 !  Initialize some variables
 !  -------------------------
 
@@ -652,7 +656,8 @@ SUBROUTINE TWOSTREAM_MASTER &
 !  Chapman function calculation
 !  ----------------------------
 !# TODO: Move outside of wavelength loolp UOL_RTM.f90
-
+!timting geom calcs
+      call cpu_time(timer1)
       DO IB = 1, NBEAMS
          CALL TWOSTREAM_BEAM_GEOMETRY_PREPARE &
             ( MAXLAYERS, MAXBEAMS,                      & ! Dimensions
@@ -683,6 +688,9 @@ SUBROUTINE TWOSTREAM_MASTER &
             USER_SECANTS(I) = ONE / USER_STREAMS(I)
          ENDDO
       ENDIF
+!timing geom calcs
+      call cpu_time(timer2)
+      geom_timer = geom_timer + timer2- timer1
 !# TODO: Move outside of wavelength loolp UOL_RTM.f90
 
 !  Set local atmospheric optical properties (Apply delta 2s scaling)
