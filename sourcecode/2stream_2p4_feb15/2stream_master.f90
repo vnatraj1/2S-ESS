@@ -651,6 +651,7 @@ SUBROUTINE TWOSTREAM_MASTER &
 
 !  Chapman function calculation
 !  ----------------------------
+!# TODO: Move outside of wavelength loolp UOL_RTM.f90
 
       DO IB = 1, NBEAMS
          CALL TWOSTREAM_BEAM_GEOMETRY_PREPARE &
@@ -682,6 +683,7 @@ SUBROUTINE TWOSTREAM_MASTER &
             USER_SECANTS(I) = ONE / USER_STREAMS(I)
          ENDDO
       ENDIF
+!# TODO: Move outside of wavelength loolp UOL_RTM.f90
 
 !  Set local atmospheric optical properties (Apply delta 2s scaling)
 !  Just copy inputs, if not required

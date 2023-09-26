@@ -529,7 +529,7 @@ SUBROUTINE TWOSTREAM_INPUTS_SOLAR_OBS &
 !  Temporary - Only Isotropic yet
 
          IF ( .NOT. DO_ISOTROPIC ) &
-            Stop'Non-isotropic not allowed yet if not doing fluorescence'
+            STOP 'Non-isotropic not allowed yet if not doing fluorescence'
 
 !  PLACEHOLDERS for other Water-leaving options
 

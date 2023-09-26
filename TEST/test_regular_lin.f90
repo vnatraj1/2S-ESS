@@ -1,4 +1,4 @@
-program test_regular
+program test_regular_lin
 
 !  Two-stream (Version 2.4) modules
 
@@ -856,6 +856,85 @@ program test_regular
             STATUS_INPUTCHECK, C_NMESSAGES, C_MESSAGES, C_ACTIONS,          & ! Outputs
             STATUS_EXECUTION,  E_MESSAGE, E_TRACE_1, E_TRACE_2 )              ! Outputs
 
+            CALL TWOSTREAM_LPS_MASTER( &
+            n_active_levels - 1, 2 * (n_active_levels - 1), & ! MAXLAYERS, MAXTOTAL = 2*MAXLAYERS
+            999, & ! MAX ERROR MESSAGES
+            1, 1, 1, 1, 1, & ! MAXBEAMS MAX_GEOMETRIES MAX_USER_STREAMS MAX_USER_RELAZMS MAX_USER_OBSGEOMS
+            jac_bk%num_params, & ! MAX ATMOSWF
+            SIZE(spars), & ! MAX SURFACE WF
+            1, & ! MAX SLEAVE WF
+            .TRUE., & ! DO_UPWELLING
+            .FALSE., & ! DO_DOWNWELLING
+            .FALSE., & ! DO PLANE PARALLEL
+            .FALSE., & ! DO 2S LEVELOUT
+            .FALSE., & ! DO MVOUT ONLY
+            .FALSE., & ! DO ADDITIONAL MVOUT
+            .TRUE., & ! DO SOLAR SOURCES
+            .FALSE., & ! DO THERMAL EMISSION
+            .FALSE., & ! DO SURFACE EMISSION
+            .TRUE., & ! DO D2S SCALING
+            do_brdf, & ! DO BRDF SURFACE
+            .TRUE., & ! DO USER OBSGEOMS
+            .FALSE., & ! DO SURFACE LEAVING
+            .FALSE., & ! DO SL ISOTROPIC
+            .FALSE., 1, 1.0D0, & !DO_PENTADIAG_INVERSE, BVPINDEX, BVPSCALEFACTOR
+            TAYLOR_ORDER, TAYLOR_SMALL, & ! TAYLOR_ORDER, TAYLOR_SMALL - this can cause quite some trouble if too large!!
+            n_active_levels - 1, 2 * (n_active_levels - 1), & ! NLAYERS NTOTAL
+            0.5D0, & ! STREAM_VALUE
+            1, & ! N_USER_OBSGEOMS
+            user_obsgeoms, & !USER OBS GEOM TRIPLETS
+            n_user_streams, & ! N_USER_STREAMS
+            user_angles, & ! USER_ANGLES
+            n_user_relazms, & ! N_USER_RELAZMS
+            user_relazms, & ! USER_RELAZMS
+            1.0D0, & ! FLUX FACTOR
+            nbeams, & ! NBEAMS
+            beam_szas, & !BEAM_SZAS
+            earth_radius, & ! EARTH RADIUS
+            alt, & ! HEIGHT GRID
+            DELTAU_INPUT, & ! DELTAU INPUT
+            OMEGA_INPUT, & ! OMEGA INPUT
+            coefs(1, 1:N_lay, 1) / 3.0D0, & ! ASYMM INPUT - 1st order phasmom divided by three
+            coefs(2, 1:N_lay, 1) / 5.0D0, & ! D2S_SCALING - 2nd order phasmom divided by 5 because of (2l+1 at l=2)
+            layer_zeros, & ! THERMAL_BB_INPUT
+            spars(1), & ! LAMBERTIAN ALBEDO
+            BRDF_F_0, BRDF_F, UBRDF_F, EMISSIVITY, 0.0D0, & ! brdf_f_0 brdf_f ubrdf_f emmisivity surf_bb
+            SLTERM_ISOTROPIC, SLTERM_F_0, & ! SLTERM_ISOTROPIC SLTERM_F_0
+            .TRUE., & ! DO_PROFILE_WFS
+            .TRUE., & ! DO_SURFACE_WFS
+            .FALSE., & ! DO_SLEAVE_WFS
+            vary_flag, & ! LAYER_VARY_FLAG
+            vary_number, & ! LAYER_VARY_NUMBER
+            SIZE(spars), & ! N_SURFACE_WFS
+            0, & ! N_SLEAVE_WFS
+            LSSL_SLTERM_ISOTROPIC, LSSL_SLTERM_F_0, & ! LSSL_SLTERM_ISOTROPIC LSSL_SLTERM_F_0
+            l_deltau_input, & ! L_DELTAU_INPUT
+            l_omega_input, & ! L_OMEGA_INPUT
+            l_phasmom_input(:, :, 1), & ! l_asymm_input
+            l_phasmom_input(:, :, 2), & ! l_d2s_scaling
+            LS_BRDF_F_0, LS_BRDF_F, LS_UBRDF_F, LS_EMISSIVITY, & ! LS_BRDF_F_0, LS_BRDF_F, LS_UBRDF_F, LS_EMISSIVITY
+            tmp_intensity_toa, & ! INTENSITY_TOA
+            tmp_profilewf_toa, & ! PROFILEWF_TOA
+            tmp_surfacewf_toa, & ! SURFACEWF_TOA
+            tmp_intensity_boa, & ! INTENSITY_BOA
+            tmp_profilewf_boa, & ! PROFILEWF_BOA
+            tmp_surfacewf_boa, & ! SURFACEWF_BOA
+            tmp_radlevel_up, & !
+            tmp_radlevel_dn, & !
+            n_geometries, & !
+            tmp_profjaclevel_up, &
+            tmp_profjaclevel_dn, &
+            tmp_surfjaclevel_up, &
+            tmp_surfjaclevel_dn, &
+            tmp_flux_toa, &
+            tmp_profjacfluxes_toa, &
+            tmp_surfjacfluxes_toa, &
+            tmp_flux_boa, &
+            tmp_profjacfluxes_boa, &
+            tmp_surfjacfluxes_boa, &
+            status_input_check, c_nmessages, c_messages, c_actions, &
+            status_execution, e_message, e_trace_1, e_trace_2)
+
       if (monitor_CPU) then
          call cpu_time(e3) ; Exacttimes(5) = Exacttimes(5) + e3 - e2 ! Exact2Stime_2c 
       endif
@@ -982,4 +1061,4 @@ write(*,*) 'ESS intensity = ', intensity_FO_Exact(1,1)
 
 !  End program
 
-end program test_regular
+end program test_regular_lin

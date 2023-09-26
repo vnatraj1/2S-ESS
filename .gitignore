@@ -1,0 +1,62 @@
+# Object and module interface files
+*.o
+*.mod
+
+# Compiled library files
+*.a
+*.so
+
+# TEST compilation folder
+# TEST/mod/
+# TEST/mod_opt/
+
+# generated test executables
+*.exe
+*.dat
+
+#Exclude testing files
+!TEST/results_saved_output.dat
+!TEST/results_saved_timings.dat
+!TEST/results_opt_saved_output.dat
+!TEST/results_opt_saved_timings.dat
+
+# macOS Files
+.DS_Store
+
+# configure files
+.deps/
+.dirstamp
+
+# various
+*~
+
+# tags file
+tags
+
+# swap files (vim backups)
+.*.swp
+
+# ------ Python Project defaults ------
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+
+# f2py interface files
+*.pyf
+
+# Distribution / packaging
+bin/
+build/
+develop-eggs/
+dist/
+eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+*.egg-info/
+.installed.cfg
+*.egg
+
+.vscode/
