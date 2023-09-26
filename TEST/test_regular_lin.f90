@@ -940,7 +940,7 @@ program test_regular_lin
       endif
 
 !  Exception handling for Input checks. 5/6/15 upgrade, added wavelength number
-
+!nvjfvnlsnvlsdnvlsdnv
       if ( STATUS_INPUTCHECK .eq. 1 ) then
          DO M = 1, C_NMESSAGES
             B_MESSAGES(B_NMESSAGES+2*M-1) = '(2STREAM_2p4 message) '//Adjustl(TRIM(C_MESSAGES(M)))
