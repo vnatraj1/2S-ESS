@@ -15,10 +15,7 @@
 *.dat
 
 #Exclude testing files
-!TEST/results_saved_output.dat
-!TEST/results_saved_timings.dat
-!TEST/results_opt_saved_output.dat
-!TEST/results_opt_saved_timings.dat
+!TEST/expected_test_results.dat
 
 # macOS Files
 .DS_Store

@@ -488,6 +488,10 @@ program test_regular
    logical, parameter :: DO_debug_output     = .false.
 !   logical, parameter :: DO_debug_output     = .true.
 
+   !Timers
+   real(kind=sp) :: geom_timer
+   geom_timer = 0.0
+
 !  START CODE $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
 
    write(*,*)
@@ -854,7 +858,8 @@ program test_regular
             INTENSITY_TOA, INTENSITY_BOA, FLUXES_TOA, FLUXES_BOA,           & ! Outputs !@@ 2p3 (Fluxes)
             RADLEVEL_UP, RADLEVEL_DN, N_GEOMETRIES,                         & ! Outputs
             STATUS_INPUTCHECK, C_NMESSAGES, C_MESSAGES, C_ACTIONS,          & ! Outputs
-            STATUS_EXECUTION,  E_MESSAGE, E_TRACE_1, E_TRACE_2 )              ! Outputs
+            STATUS_EXECUTION,  E_MESSAGE, E_TRACE_1, E_TRACE_2, &
+            geom_timer )              ! Outputs
 
       if (monitor_CPU) then
          call cpu_time(e3) ; Exacttimes(5) = Exacttimes(5) + e3 - e2 ! Exact2Stime_2c 
@@ -950,6 +955,7 @@ write(*,*) 'ESS geometry calc time = ', Exacttimes(2)
 write(*,*) 'Spherical function calc time = ', Exacttimes(3)
 write(*,*) 'Optical property calc time = ', Exacttimes(4)
 write(*,*) '2S calc time = ', Exacttimes(5)
+write(*,*) '2S geom calc time = ', geom_timer
 write(*,*) 'ESS calc time = ', Exacttimes(6)
 write(*,*) 'Total run time = ', ExactRuntime
 write(*,*) '2S intensity = ', intensity_2S_Exact(1,1)
@@ -967,6 +973,7 @@ write(*,*) 'ESS intensity = ', intensity_FO_Exact(1,1)
       write(2,*) 'Spherical function calc time = ', Exacttimes(3)
       write(2,*) 'Optical property calc time = ', Exacttimes(4)
       write(2,*) '2S calc time = ', Exacttimes(5)
+      write(*,*) '2S geom calc time = ', geom_timer
       write(2,*) 'ESS calc time = ', Exacttimes(6)
       write(2,*) 'Total run time = ', ExactRuntime 
    close(2) 
