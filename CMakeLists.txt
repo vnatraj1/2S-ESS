@@ -33,13 +33,6 @@ endif()
 # twostr
 #=====================================================
 file(GLOB REG_2S_SRC sourcecode/2stream_2p4_feb15/*.f90)
-file(GLOB_RECURSE OPT_2S_SRC sourcecode/2stream_2p4_optimized/*.f90)
-
-#=====================================================
-# ESS
-#=====================================================
-file(GLOB REG_FO_SRC sourcecode/FO_1p4_sourcecode/*.f90)
-file(GLOB OPT_FO_SRC sourcecode/FO_1p4_optimized/*.f90)
 
 set(2S_PATH sourcecode/2stream_2p4_optimized)
 set(2S_SOL_PATH sourcecode/2stream_2p4_optimized/solar)
@@ -72,6 +65,11 @@ set(SOURCES_2S_MASTER
    ${2S_OBS_PATH}/2stream_master_solar_obs.f90
 )
 
+#=====================================================
+# ESS
+#=====================================================
+file(GLOB REG_FO_SRC sourcecode/FO_1p4_sourcecode/*.f90)
+file(GLOB OPT_FO_SRC sourcecode/FO_1p4_optimized/*.f90)
 
 #=====================================================
 # twostr library (static)
