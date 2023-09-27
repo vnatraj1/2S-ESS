@@ -656,7 +656,7 @@ SUBROUTINE TWOSTREAM_MASTER &
 !  Chapman function calculation
 !  ----------------------------
 !# TODO: Move outside of wavelength loolp UOL_RTM.f90
-!timting geom calcs
+!timing geom calcs
       call cpu_time(timer1)
       DO IB = 1, NBEAMS
          CALL TWOSTREAM_BEAM_GEOMETRY_PREPARE &
