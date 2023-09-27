@@ -21,7 +21,7 @@ program test_regular
 !  Dimensions
 !  ==========
 
-   INTEGER, parameter ::  E_nlayers   = 20
+   INTEGER, parameter ::  E_nlayers   = 114
    INTEGER, parameter ::  E_nmoms_all = 5000
 
    INTEGER, parameter ::  E_ngeoms = 1

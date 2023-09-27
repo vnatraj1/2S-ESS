@@ -24,4 +24,15 @@ layer height = 1 km (TOA altitude = 114 km)
 "enhanced" spherical option used
 
 For other use cases, the user can contact the author at vijay.natraj@jpl.nasa.gov.
+
+## Compile and run tests
+
+The following will create two executables, *regtest* and *opttest*, which are used to run the regular and optimized code, respectively. Running `ctest` will test the generated output against the expected results in *TEST/expected_test_results.dat*.
+
+```
+cmake -B build
+cd build
+cmake --build .
+ctest
+```
  
