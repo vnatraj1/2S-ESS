@@ -15,6 +15,7 @@
 *.dat
 
 #Exclude testing files
+
 !TEST/expected_test_results.dat
 
 # macOS Files

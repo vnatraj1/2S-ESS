@@ -1,0 +1,217 @@
+cmake_minimum_required(VERSION 3.20)
+
+project(2S-ESS 
+  VERSION 2.4.2
+  LANGUAGES Fortran)
+
+option (ENABLE_SHARED            "Enable shared libraries" OFF)
+
+enable_testing()
+
+set(CMAKE_LIBRARY_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/lib)
+set(CMAKE_ARCHIVE_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/lib)
+set(CMAKE_Fortran_MODULE_DIRECTORY ${CMAKE_BINARY_DIR}/mod_files)
+install(DIRECTORY ${CMAKE_Fortran_MODULE_DIRECTORY}/ DESTINATION include)
+include_directories(${CMAKE_BINARY_DIR}/mod_files)
+
+#=====================================================
+# twostr
+#=====================================================
+#file(GLOB OPT_2S_SRC sourcecode/2stream_2p4_optimized/*.f90)
+
+#=====================================================
+# ESS
+#=====================================================
+#file(GLOB REG_FO_SRC sourcecode/FO_1p4_sourcecode/*.f90)
+
+
+set(2S_PATH sourcecode/2stream_2p4_optimized)
+set(2S_SOL_PATH sourcecode/2stream_2p4_optimized/solar)
+set(2S_OBS_PATH sourcecode/2stream_2p4_optimized/solar/obs)
+set(FO_PATH_1P4 sourcecode/FO_1p4_optimized)
+
+set(SOURCES_2S 
+   ${2S_PATH}/2stream_Taylor_optimized.f90
+   ${2S_PATH}/2stream_brdf_kernels.f90
+   ${2S_OBS_PATH}/2stream_brdf_supplement_solar_obs.f90
+   ${2S_PATH}/2stream_sleave_routines.f90
+   ${2S_PATH}/2stream_sleave_supplement_optimized.f90
+   ${2S_PATH}/2stream_geometry_optimized.f90
+   ${2S_OBS_PATH}/2stream_geometry_solar_obs.f90
+   ${2S_OBS_PATH}/2stream_inputs_solar_obs.f90
+   ${2S_OBS_PATH}/2stream_writemodules_solar_obs.f90
+   ${2S_PATH}/2stream_miscsetups_optimized.f90
+   ${2S_OBS_PATH}/2stream_miscsetups_solar_obs.f90
+   ${2S_OBS_PATH}/2stream_miscsetups_solar_obs_pp.f90
+   ${2S_PATH}/2stream_solutions_optimized.f90 
+   ${2S_SOL_PATH}/2stream_solutions_solar.f90 
+   ${2S_PATH}/2stream_bvproblem_optimized.f90 
+   ${2S_OBS_PATH}/2stream_intensity_solar_obs.f90
+   ${2S_OBS_PATH}/2stream_converge_obs.f90
+   ${2S_PATH}/2stream_fluxes.f90
+)
+#  masters
+set(SOURCES_2S_MASTER
+   ${SOURCES_2S}     
+   ${2S_OBS_PATH}/2stream_master_solar_obs.f90
+)
+
+#  FIRST_ORDER SOURCES
+#  ===================
+
+#  Version 1.4
+#  ===========
+
+#  Geometry and Regular
+
+set(SOURCES_FO_1P4_G
+   ${FO_PATH_1P4}/FO_SSgeometry_inputs.f90
+   ${FO_PATH_1P4}/FO_geometry_Generic_ps.f90 
+   ${FO_PATH_1P4}/FO_geometry_Routines_obs_pp.f90
+   ${FO_PATH_1P4}/FO_geometry_Routines_obs_rps.f90
+   ${FO_PATH_1P4}/FO_geometry_Routines_obs_eps.f90
+   ${FO_PATH_1P4}/FO_SSgeometry_master_obs_pp.f90
+   ${FO_PATH_1P4}/FO_SSgeometry_master_obs_rps.f90
+   ${FO_PATH_1P4}/FO_SSgeometry_master_obs_eps.f90
+   ${FO_PATH_1P4}/FO_ScalarSS_Spherfuncs_optimized.f90
+)
+
+set(SOURCES_FO_1P4_MASTER
+   ${SOURCES_FO_1P4_G}     
+   ${FO_PATH_1P4}/FO_ScalarSS_RTCalcs_I_pp.f90
+   ${FO_PATH_1P4}/FO_ScalarSS_RTCalcs_I_rps.f90
+   ${FO_PATH_1P4}/FO_ScalarSS_RTCalcs_I_eps.f90
+)
+#  EXACT MASTERS
+#  =============
+
+
+
+#=====================================================
+# twostr library (static)
+#=====================================================
+add_library(TWOSTR STATIC ${SOURCES_2S_MASTER})
+if(CMAKE_Fortran_COMPILER_ID MATCHES "GNU")
+  set_target_properties(TWOSTR PROPERTIES COMPILE_FLAGS "-std=legacy")
+endif()
+
+set(MODLIST)
+foreach (_fsource ${SOURCES_2S_MASTER})
+  # extract program name from source
+  execute_process(COMMAND grep -i -P "^\\s*module\\s+(\\w*)" ${_fsource}
+                  COMMAND awk "{ print tolower(\$2) }"
+                  WORKING_DIRECTORY ${CMAKE_SOURCE_DIR}
+                  OUTPUT_VARIABLE processOutput
+                  )
+
+  # strip terminating newline
+  string(REGEX REPLACE "\n$" "" modName "${processOutput}")
+
+  if (NOT ${modName} STREQUAL "")
+      #message( "Found ${modName} in ${_fsource}" )
+      list(APPEND MODLIST "${CMAKE_BINARY_DIR}/${modName}.mod")
+  endif ()
+endforeach(_fsource ${SOURCES_2S_MASTER})
+list(REMOVE_DUPLICATES MODLIST)
+#message(STATUS "arg list: ${MODLIST}")
+
+set_target_properties (TWOSTR
+      PROPERTIES
+      PUBLIC_HEADER "${MODLIST}"
+      POSITION_INDEPENDENT_CODE ON)
+
+install(
+  TARGETS TWOSTR
+  RUNTIME DESTINATION bin
+  LIBRARY DESTINATION lib
+  PUBLIC_HEADER DESTINATION include
+  )
+
+#=====================================================
+# twostr library (Shared, optional)
+#=====================================================
+if(ENABLE_SHARED)
+  add_library(TWOSTR_shared SHARED ${SOURCES_2S_MASTER})
+  #target_link_libraries(TWOSTR_shared PRIVATE ${HDF5_HL_LIBRARIES} ${HDF5_LIBRARIES})
+  install(
+    TARGETS TWOSTR_shared
+    RUNTIME DESTINATION bin
+    LIBRARY DESTINATION lib
+    )
+endif()
+
+#=====================================================
+# ESS library (static)
+#=====================================================
+add_library(ESS STATIC ${SOURCES_FO_1P4_MASTER})
+if(CMAKE_Fortran_COMPILER_ID MATCHES "GNU")
+  set_target_properties(ESS PROPERTIES COMPILE_FLAGS "-std=legacy")
+endif()
+
+set(MODLIST_FO)
+foreach (_fsource ${SOURCES_FO_1P4_MASTER})
+  # extract program name from source
+  execute_process(COMMAND grep -i -P "^\\s*module\\s+(\\w*)" ${_fsource}
+                  COMMAND awk "{ print tolower(\$2) }"
+                  WORKING_DIRECTORY ${CMAKE_SOURCE_DIR}
+                  OUTPUT_VARIABLE processOutput
+                  )
+
+  # strip terminating newline
+  string(REGEX REPLACE "\n$" "" modName "${processOutput}")
+
+  if (NOT ${modName} STREQUAL "")
+      #message( "Found ${modName} in ${_fsource}" )
+      list(APPEND MODLIST_FO "${CMAKE_BINARY_DIR}/${modName}.mod")
+  endif ()
+endforeach(_fsource ${REG_FO_SRC})
+list(REMOVE_DUPLICATES MODLIST)
+#message(STATUS "arg list: ${MODLIST}")
+
+set_target_properties (ESS
+      PROPERTIES
+      PUBLIC_HEADER "${MODLIST_FO}"
+      POSITION_INDEPENDENT_CODE ON)
+
+install(
+  TARGETS ESS
+  RUNTIME DESTINATION bin
+  LIBRARY DESTINATION lib
+  PUBLIC_HEADER DESTINATION include
+  )
+
+#=====================================================
+# ESS library (Shared, optional)
+#=====================================================
+if(ENABLE_SHARED)
+  add_library(ESS_shared SHARED ${SOURCES_FO_1P4_MASTER})
+  #target_link_libraries(TWOSTR_shared PRIVATE ${HDF5_HL_LIBRARIES} ${HDF5_LIBRARIES})
+  install(
+    TARGETS ESS_shared
+    RUNTIME DESTINATION bin
+    LIBRARY DESTINATION lib
+    )
+endif()
+
+#====================================================
+# Add test
+#====================================================
+set(EXE regtest)
+add_executable(${EXE} TEST/test_opt.f90)
+target_link_libraries(${EXE} TWOSTR ESS)
+install(TARGETS ${EXE} RUNTIME DESTINATION bin)
+
+add_test(
+  NAME "optimized run"
+  COMMAND $<TARGET_FILE:${EXE}>
+)
+
+add_test(
+  NAME "optimized output"
+  COMMAND numdiff -S -r 1e-14 ${CMAKE_SOURCE_DIR}/TEST/results_opt_saved_output.dat test_opt_output.dat
+)
+
+add_test(
+  NAME "optimized output vs regular"
+  COMMAND numdiff -S -r 1e-14 ${CMAKE_SOURCE_DIR}/TEST/results_saved_output.dat test_opt_output.dat
+)

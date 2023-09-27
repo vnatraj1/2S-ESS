@@ -656,7 +656,8 @@ SUBROUTINE TWOSTREAM_MASTER &
 !  Chapman function calculation
 !  ----------------------------
 !# TODO: Move outside of wavelength loolp UOL_RTM.f90
-!timting geom calcs
+
+!timing geom calcs
       call cpu_time(timer1)
       DO IB = 1, NBEAMS
          CALL TWOSTREAM_BEAM_GEOMETRY_PREPARE &
@@ -688,9 +689,11 @@ SUBROUTINE TWOSTREAM_MASTER &
             USER_SECANTS(I) = ONE / USER_STREAMS(I)
          ENDDO
       ENDIF
+
 !timing geom calcs
       call cpu_time(timer2)
       geom_timer = geom_timer + timer2- timer1
+
 !# TODO: Move outside of wavelength loolp UOL_RTM.f90
 
 !  Set local atmospheric optical properties (Apply delta 2s scaling)

@@ -956,6 +956,7 @@ write(*,*) 'Spherical function calc time = ', Exacttimes(3)
 write(*,*) 'Optical property calc time = ', Exacttimes(4)
 write(*,*) '2S calc time = ', Exacttimes(5)
 write(*,*) '2S geom calc time = ', geom_timer
+
 write(*,*) 'ESS calc time = ', Exacttimes(6)
 write(*,*) 'Total run time = ', ExactRuntime
 write(*,*) '2S intensity = ', intensity_2S_Exact(1,1)

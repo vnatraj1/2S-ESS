@@ -38,6 +38,7 @@ file(GLOB_RECURSE OPT_2S_SRC sourcecode/2stream_2p4_optimized/*.f90)
 #=====================================================
 # ESS
 #=====================================================
+
 file(GLOB REG_FO_SRC sourcecode/FO_1p4_sourcecode/*.f90)
 file(GLOB OPT_FO_SRC sourcecode/FO_1p4_optimized/*.f90)
 
@@ -71,7 +72,6 @@ set(SOURCES_2S_MASTER
    ${SOURCES_2S}     
    ${2S_OBS_PATH}/2stream_master_solar_obs.f90
 )
-
 
 #=====================================================
 # twostr library (static)
@@ -111,9 +111,9 @@ install(
   PUBLIC_HEADER DESTINATION include
   )
 
-
 #====================================================
 # Add executables
+
 #====================================================
 set(EXE regtest)
 add_executable(${EXE} TEST/test_regular.f90)
@@ -129,10 +129,12 @@ install(TARGETS ${EXE_OPT} RUNTIME DESTINATION bin)
 #====================================================
 # Add test
 #====================================================
+
 add_test(
   NAME "regular run"
   COMMAND $<TARGET_FILE:${EXE}>
 )
+
 set_tests_properties("regular run" PROPERTIES LABELS "run;reg")
 
 add_test(
